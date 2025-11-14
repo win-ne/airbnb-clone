@@ -3,7 +3,7 @@
   "packageManager": "yarn@4.6.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "apps/backend"
   ],
   "scripts": {
     "dev": "turbo run dev --parallel"
