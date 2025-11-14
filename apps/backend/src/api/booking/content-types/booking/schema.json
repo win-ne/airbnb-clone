@@ -28,6 +28,12 @@
       "relation": "manyToOne",
       "target": "api::listing.listing",
       "inversedBy": "bookings"
+    },
+    "guest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::guest.guest",
+      "inversedBy": "bookings"
     }
   }
 }
