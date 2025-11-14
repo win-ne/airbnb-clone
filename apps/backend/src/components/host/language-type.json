@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_host_language_types",
+  "info": {
+    "displayName": "Language Type"
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Hindi",
+        "Chinese Mandarin",
+        "Arabic",
+        "Japanese"
+      ]
+    }
+  },
+  "config": {}
+}

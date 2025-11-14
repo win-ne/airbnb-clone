@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_listing_amenity_types",
+  "info": {
+    "displayName": "Amenity Type"
+  },
+  "options": {},
+  "attributes": {
+    "amenity": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Wifi",
+        "Air conditioning",
+        "Heating",
+        "Kitchen",
+        "Refrigerator",
+        "Microwave",
+        "Stove",
+        "Oven",
+        "Dishwasher",
+        "Washer",
+        "Dryer",
+        "TV",
+        "Streaming services",
+        "Private entrance",
+        "Free parking",
+        "Garage parking",
+        "Balcony",
+        "Patio",
+        "Backyard",
+        "Outdoor furniture",
+        "BBQ grill",
+        "Workspace",
+        "Hair dryer",
+        "Iron",
+        "Coffee maker",
+        "Toiletries",
+        "Linens",
+        "Towels",
+        "Pool",
+        "Hot tub"
+      ]
+    }
+  },
+  "config": {}
+}

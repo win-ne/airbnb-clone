@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "guestCount": {
+      "type": "integer",
+      "required": true
+    },
+    "listing": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::listing.listing",
+      "inversedBy": "bookings"
+    }
+  }
+}

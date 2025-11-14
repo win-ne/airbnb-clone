@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_listing_featured_services_types",
+  "info": {
+    "displayName": "Featured Service Type"
+  },
+  "options": {},
+  "attributes": {
+    "featuredService": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Outdoor entertainment",
+        "Designed for staying cool",
+        "Self check-in",
+        "Fast Wifi",
+        "Fully equipped kitchen",
+        "Free parking on premises",
+        "Washer & Dryer",
+        "Family-friendly",
+        "Pet-friendly",
+        "Hot tub",
+        "Pool",
+        "Balcony with a view",
+        "Fireplace",
+        "BBQ grill",
+        "Outdoor dining area",
+        "Fitness area",
+        "Workspace",
+        "Breakfast included",
+        "Air conditioning",
+        "Heating",
+        "Smart TV",
+        "Sound system",
+        "Garden",
+        "Terrace",
+        "Iron & ironing board",
+        "Hair dryer",
+        "Elevator access",
+        "Luggage drop-off",
+        "Twenty-four-hour security",
+        "Concierge service"
+      ]
+    }
+  },
+  "config": {}
+}

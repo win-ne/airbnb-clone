@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listings",
+  "info": {
+    "singularName": "listing",
+    "pluralName": "listings",
+    "displayName": "Listing"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "placeType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Entire Property",
+        "Room"
+      ]
+    },
+    "guestCount": {
+      "type": "integer",
+      "required": true
+    },
+    "bedroomCount": {
+      "type": "integer",
+      "required": true
+    },
+    "bedCount": {
+      "type": "integer",
+      "required": true
+    },
+    "bathroomCount": {
+      "type": "integer",
+      "required": true
+    },
+    "propertyType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "House",
+        "Apartment",
+        "Guesthouse",
+        "Hotel"
+      ]
+    },
+    "roomType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Studio",
+        "Multi-room"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "pricePerNight": {
+      "type": "decimal",
+      "required": true
+    },
+    "amenities": {
+      "type": "component",
+      "component": "listing.amenity-type",
+      "repeatable": true
+    },
+    "featuredServices": {
+      "type": "component",
+      "component": "listing.featured-services-type",
+      "repeatable": true
+    },
+    "host": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::host.host",
+      "inversedBy": "listings"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "listing"
+    }
+  }
+}

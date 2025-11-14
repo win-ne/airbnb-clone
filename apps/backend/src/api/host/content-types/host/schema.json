@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hosts",
+  "info": {
+    "singularName": "host",
+    "pluralName": "hosts",
+    "displayName": "Host"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "profession": {
+      "type": "string",
+      "required": true
+    },
+    "homeUniqueProposition": {
+      "type": "text",
+      "required": false
+    },
+    "guestProposition": {
+      "type": "text"
+    },
+    "school": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "languages": {
+      "type": "component",
+      "component": "host.language-type",
+      "repeatable": true
+    },
+    "listings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listing.listing",
+      "mappedBy": "host"
+    }
+  }
+}
