@@ -20,7 +20,7 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phoneNumber: '',
   })
 
   const [listing, setListing] = useState<Listing | null>(null)
@@ -56,17 +56,30 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
 
   const completeBooking = async () => {
     try {
-      if (formData.firstName && formData.lastName && formData.email && formData.phone) {
+      if (formData.firstName && formData.lastName && formData.email && formData.phoneNumber) {
         const guest = await createGuest(formData)
-        if (guest.id) {
-          await createBooking({ startDate: checkIn, endDate: checkOut, guest, guestCount: guests })
-          window.location.href = '/checkout/complete'
+        if (guest.documentId && listing) {
+          const booking = await createBooking(
+            {
+              startDate: checkIn,
+              endDate: checkOut,
+              guest: { connect: { documentId: guest.documentId } },
+              listing: { connect: { documentId: listing.documentId } },
+              guestCount: guests
+            })
+
+          if (booking.id) {
+            window.location.href = '/checkout/complete'
+          } else {
+            window.location.href = '/checkout/incomplete'
+          }
+        } else {
+          window.location.href = '/checkout/incomplete'
         }
       } else {
         setErr('Some values are incomplete or incorrect. Please adjust them')
       }
     } catch (err) {
-      console.error(err)
       window.location.href = '/checkout/incomplete'
     }
   }
@@ -98,6 +111,10 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
               <div className="flex justify-between">
                 <span className="text-gray-600">Check-out</span>
                 <span className="font-semibold text-gray-900">{formatDate(checkOut)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Nights</span>
+                <span className="font-semibold text-gray-900">{`${nights} night${nights > 1 ? 's' : ''}`}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Guests</span>
@@ -148,7 +165,7 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
                 <input
                   type="tel"
                   name="phoneNumber"
-                  value={formData.phone}
+                  value={formData.phoneNumber}
                   onChange={handleInputChange}
                   placeholder="+1 (555) 000-0000"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"

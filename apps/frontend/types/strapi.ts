@@ -16,6 +16,10 @@ export type StrapiContentTypeBase = {
     publishedAt?: string
 }
 
+export type StrapiSingleRelationConnection = { connect: { documentId: string } }
+
+export type StrapiMultiRelationConnection = { connect: { documentId: string }[] }
+
 export type StrapiPhoto = StrapiContentTypeBase & {
     name: string
     alternativeText: string | null

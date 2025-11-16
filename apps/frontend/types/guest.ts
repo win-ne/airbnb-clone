@@ -5,7 +5,7 @@ export type Guest = StrapiContentTypeBase & {
   firstName: string
   lastName: string
   email: string
-  phone: string
+  phoneNumber: string
   bookings?: Booking[]
 }
 
