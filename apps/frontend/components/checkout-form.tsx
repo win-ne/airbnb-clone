@@ -96,7 +96,7 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
 
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-3 gap-12">
         <div className="col-span-2">
-          <Link href="/" className="flex items-center gap-2 text-red-500 font-semibold mb-8 hover:text-red-600">
+          <Link href={`/listing/${listing.documentId}`} className="flex items-center gap-2 text-red-500 font-semibold mb-8 hover:text-red-600">
             <ChevronLeft className="w-5 h-5" />
             Back to listing
           </Link>
