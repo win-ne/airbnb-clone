@@ -36,13 +36,22 @@
     "languages": {
       "type": "component",
       "component": "host.language-type",
-      "repeatable": true
+      "repeatable": true,
+      "required": true
     },
     "listings": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::listing.listing",
       "mappedBy": "host"
+    },
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

@@ -507,7 +507,8 @@ export interface ApiHostHost extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     guestProposition: Schema.Attribute.Text;
     homeUniqueProposition: Schema.Attribute.Text;
-    languages: Schema.Attribute.Component<'host.language-type', true>;
+    languages: Schema.Attribute.Component<'host.language-type', true> &
+      Schema.Attribute.Required;
     listings: Schema.Attribute.Relation<'oneToMany', 'api::listing.listing'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::host.host'> &
@@ -515,6 +516,8 @@ export interface ApiHostHost extends Struct.CollectionTypeSchema {
     location: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     profession: Schema.Attribute.String & Schema.Attribute.Required;
+    profilePicture: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     school: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
