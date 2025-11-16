@@ -1,9 +1,9 @@
 'use server'
 
 import { makeStrapiGETRequest, makeStrapiGETRequestWithPages, makeStrapiRequest } from "@/app/lib/request"
-import { Listing } from "@/types/listing"
+import { ListingPayload } from "@/types/listing"
 
-export async function createListing(details: Listing) {
+export async function createListing(details: ListingPayload) {
     return makeStrapiRequest('/api/listings', 'POST', true, details)
 }
 
@@ -14,7 +14,9 @@ export async function getListing(id: string) {
             populate: {
                 photos: true,
                 host: {
-                    populate: 'profilePicture'
+                    populate: {
+                        profilePicture: true
+                    }
                 },
                 bookings: true,
                 amenities: true,

@@ -1,9 +1,9 @@
 'use server'
 
 import { makeStrapiGETRequest, makeStrapiGETRequestWithPages, makeStrapiRequest } from "@/app/lib/request"
-import { Host } from "@/types/host"
+import { HostPayload } from "@/types/host"
 
-export async function createHost(details: Host) {
+export async function createHost(details: HostPayload) {
     return makeStrapiRequest('/api/hosts', 'POST', true, details)
 }
 

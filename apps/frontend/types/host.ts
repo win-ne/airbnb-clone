@@ -17,3 +17,5 @@ export type Host = StrapiContentTypeBase & {
   languages: Language[]
   profilePicture: StrapiPhoto
 }
+
+export type HostPayload = Omit<Host, 'id' | 'documentId' | 'createdAt'>

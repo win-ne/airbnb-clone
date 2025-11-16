@@ -12,8 +12,8 @@ export type StrapiContentTypeBase = {
     id: number
     documentId: string
     createdAt: string
-    updatedAt: string | null
-    publishedAt: string | null
+    updatedAt?: string
+    publishedAt?: string
 }
 
 export type StrapiPhoto = StrapiContentTypeBase & {

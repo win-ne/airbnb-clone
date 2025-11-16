@@ -27,6 +27,8 @@ export type Listing = StrapiContentTypeBase & {
   host?: Host
   bookings?: Booking[]
   photos?: StrapiPhoto[]
-  amenities: Amenity[]
-  featuredServices: FeaturedService[]
+  amenities?: Amenity[]
+  featuredServices?: FeaturedService[]
 }
+
+export type ListingPayload = Omit<Listing, 'id' | 'documentId' | 'createdAt'>

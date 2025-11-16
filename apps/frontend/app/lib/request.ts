@@ -1,7 +1,7 @@
-import { Booking } from "@/types/booking"
-import { Guest } from "@/types/guest"
-import { Host } from "@/types/host"
-import { Listing } from "@/types/listing"
+import { Booking, BookingPayload } from "@/types/booking"
+import { Guest, GuestPayload } from "@/types/guest"
+import { Host, HostPayload } from "@/types/host"
+import { Listing, ListingPayload } from "@/types/listing"
 import { StrapiErrorResponse } from "@/types/strapi"
 import qs from "qs"
 
@@ -35,7 +35,7 @@ export async function makeStrapiRequest(
     path: string,
     method: string,
     encloseInData = false,
-    details?: Booking | Guest | Listing | Host
+    details?: Booking | Guest | Listing | Host | BookingPayload | GuestPayload | ListingPayload | HostPayload
 ) {
     const requestProps: RequestInit = { method }
 

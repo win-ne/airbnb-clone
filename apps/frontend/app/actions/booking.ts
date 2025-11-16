@@ -1,9 +1,9 @@
 'use server'
 
 import { makeStrapiGETRequest, makeStrapiGETRequestWithPages, makeStrapiRequest } from "@/app/lib/request"
-import { Booking } from "@/types/booking"
+import { BookingPayload } from "@/types/booking"
 
-export async function createBooking(details: Booking) {
+export async function createBooking(details: BookingPayload) {
     return makeStrapiRequest('/api/bookings', 'POST', true, details)
 }
 

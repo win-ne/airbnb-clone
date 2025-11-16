@@ -41,10 +41,7 @@ export default function Home() {
       <header className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
-              ✕
-            </div>
-            <span className="text-xl font-bold text-gray-900">airbnb</span>
+            <img src="/logo.png" className="h-8" alt="Airbnb Logo" />
           </div>
           <nav className="flex items-center gap-8">
             <button className="text-gray-700 hover:text-gray-900 font-medium">Homes</button>
@@ -74,7 +71,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8">{location.name}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {location.listings.map((listing) => (
-              <Link href={`/listing/${listing.id}`} key={listing.id} className="group cursor-pointer">
+              <Link href={`/listing/${listing.documentId}`} key={listing.id} className="group cursor-pointer">
                 <div className="relative mb-3 overflow-hidden rounded-lg">
                   <img
                     src={`http://localhost:1337${listing.photos[0].url}` || "/placeholder.svg"}

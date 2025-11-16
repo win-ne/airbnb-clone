@@ -8,3 +8,5 @@ export type Guest = StrapiContentTypeBase & {
   phone: string
   bookings?: Booking[]
 }
+
+export type GuestPayload = Omit<Guest, 'id' | 'documentId' | 'createdAt' | 'bookings'>
