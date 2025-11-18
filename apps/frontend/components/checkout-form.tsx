@@ -7,6 +7,7 @@ import { Listing } from '@/types/listing'
 import { getListing } from '@/app/actions/listings'
 import { createGuest } from '@/app/actions/guests'
 import { createBooking } from '@/app/actions/booking'
+import { StrapiURL } from '@/app/lib/request'
 
 interface CheckoutFormProps {
   id: string
@@ -178,7 +179,7 @@ export default function CheckoutForm({ id, checkIn, checkOut, guestCount: guests
         <div>
           <div className="sticky top-20 border border-gray-300 rounded-xl overflow-hidden shadow-lg">
             <div className="border-b border-gray-200">
-              {listing.photos?.length && <img src={`http://localhost:1337${listing.photos[0].url}`} alt={listing.name} className="w-full h-48 object-cover" />}
+              {listing.photos?.length && <img src={`${StrapiURL}${listing.photos[0].url}`} alt={listing.name} className="w-full h-48 object-cover" />}
               <div className="p-4">
                 <p className="text-xs text-gray-500 uppercase font-semibold mb-1">{listing.placeType}</p>
                 <h3 className="font-semibold text-gray-900 line-clamp-2">{listing.name}</h3>

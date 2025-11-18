@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Heart, Star } from 'lucide-react'
 import { getListings } from './actions/listings'
 import { useState, useEffect } from 'react'
+import { StrapiURL } from './lib/request'
 
 interface Location {
   name: string
@@ -74,7 +75,7 @@ export default function Home() {
               <Link href={`/listing/${listing.documentId}`} key={listing.id} className="group cursor-pointer">
                 <div className="relative mb-3 overflow-hidden rounded-lg">
                   <img
-                    src={`http://localhost:1337${listing.photos[0].url}` || "/placeholder.svg"}
+                    src={`${StrapiURL}${listing.photos[0].url}` || "/placeholder.svg"}
                     alt={listing.name}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

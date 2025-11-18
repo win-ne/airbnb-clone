@@ -6,6 +6,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { Listing } from '@/types/listing'
 import { getListing } from '@/app/actions/listings'
 import { useParams } from 'next/navigation'
+import { StrapiURL } from '@/app/lib/request'
 
 export default function ListingPage() {
   const { id } = useParams<{ id: string }>()
@@ -116,14 +117,14 @@ function ListingPageComponent({ listing }: { listing: Listing }) {
           {
             listing.photos && <div className="col-span-2 row-span-2">
               {
-                listing.photos[0] && <img src={`http://localhost:1337${listing.photos[0]?.url}`} alt={listing.name} className="w-full object-cover object-center h-full" />
+                listing.photos[0] && <img src={`${StrapiURL}${listing.photos[0]?.url}`} alt={listing.name} className="w-full object-cover object-center h-full" />
               }
             </div>
           }
           {listing.photos && listing.photos.length && listing.photos.slice(1).map((listingPhoto, index) => (
             <div key={`room-photo-${index}`}>
               <img
-                src={`http://localhost:1337${listingPhoto.url}`}
+                src={`${StrapiURL}${listingPhoto.url}`}
                 alt="Room view"
                 className="w-full object-cover  object-center h-full"
               />
@@ -149,7 +150,7 @@ function ListingPageComponent({ listing }: { listing: Listing }) {
             </div>
             <div className="flex items-center gap-4  mb-4">
               <img
-                src={`http://localhost:1337${listing.host?.profilePicture.url}`}
+                src={`${StrapiURL}${listing.host?.profilePicture.url}`}
                 alt={listing.host?.name}
                 className="w-12 h-12 rounded-full object-cover"
               />
